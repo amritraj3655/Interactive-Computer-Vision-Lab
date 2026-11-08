@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionLab | Computer Vision Playground</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">V</span> VisionLab</a>
+    <span class="top-note">Computer Vision Processing Platform</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">INTERACTIVE COMPUTER VISION LAB</p>
+      <h1>Explore. Process. Visualize.</h1>
+      <p class="hero-copy">Upload an image or video and experiment with 11 computer vision concepts.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div><p class="eyebrow">WORKSPACE</p><h2>Choose a concept</h2></div>
+        <span class="concept-count">11 concepts</span>
+      </div>
+
+      <div class="field">
+        <label for="conceptSelect">Computer Vision concept</label>
+        <select id="conceptSelect"><option value="">Loading concepts...</option></select>
+        <p id="conceptDescription" class="helper">Select a concept to get started.</p>
+        <a id="learnMore" class="learn-link" href="#" target="_blank" rel="noopener" hidden>Learn more about this concept ↗</a>
+      </div>
+
+      <div class="field">
+        <label for="fileInput">Upload your input</label>
+        <label class="upload-zone" for="fileInput" id="uploadZone">
+          <span class="upload-icon">↑</span>
+          <strong>Choose an image or video</strong>
+          <span id="uploadHint">PNG, JPG, JPEG, BMP, WEBP, MP4, AVI, MOV or MKV</span>
+          <span class="browse-button">Browse files</span>
+        </label>
+        <input id="fileInput" type="file" accept="image/*,video/*" hidden>
+        <p id="fileName" class="helper">No file selected.</p>
+      </div>
+
+      <div class="field" id="parameterSection" hidden>
+        <label>Additional parameters</label>
+        <div id="parameterFields" class="parameter-grid"></div>
+      </div>
+
+      <div class="actions">
+        <button id="processButton" class="primary-button" disabled>Process input <span>→</span></button>
+        <p id="statusMessage" class="status" role="status">Select a concept and upload a file.</p>
+      </div>
+    </section>
+
+    <section class="results">
+      <div class="section-heading">
+        <div><p class="eyebrow">OUTPUT</p><h2>Visualization results</h2></div>
+      </div>
+      <div class="result-grid">
+        <article class="result-card">
+          <div class="result-title"><h3>Original input</h3><span class="result-tag">SOURCE</span></div>
+          <div id="originalPreview" class="preview empty-preview">Your uploaded file will appear here.</div>
+        </article>
+        <article class="result-card">
+          <div class="result-title"><h3>Processed output</h3><span class="result-tag">RESULT</span></div>
+          <div id="processedPreview" class="preview empty-preview">Your processed result will appear here.</div>
+          <a id="downloadLink" class="download-button disabled" href="#" download aria-disabled="true">↓ Download result</a>
+        </article>
+      </div>
+      <p class="footer-note">Image and video processing runs on the Python/OpenCV backend.</p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
