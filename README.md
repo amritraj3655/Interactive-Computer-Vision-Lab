@@ -20,3 +20,7 @@ Open http://127.0.0.1:5000 in your browser.
 - Grayscale conversion is implemented as the first end-to-end algorithm.
 - The remaining algorithms will be added incrementally.
 - Maximum upload size: 100 MB.
+
+
+
+https://interactive-computer-vision-lab.onrender.com/
