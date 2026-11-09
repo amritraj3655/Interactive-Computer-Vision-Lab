@@ -126,26 +126,20 @@ def process_frame(frame, concept, params):
             threshold1,
             threshold2
         )    
+        
     elif concept == "morphology":
-
-        operation = params.get(
-            "operation",
-            "Erosion"
-        )
-
-        kernel_size = params.get(
-            "kernel_size",
-            3
-        )
-    elif concept == "corner_detection":
-        sensitivity = params.get("sensitivity", 0.04)
-        return detect_harris_corners(frame, sensitivity)
+        operation = params.get("operation", "Erosion")
+        kernel_size = params.get("kernel_size", 3)
 
         return apply_morphology(
             frame,
             operation,
             kernel_size
         )
+
+    elif concept == "corner_detection":
+        sensitivity = params.get("sensitivity", 0.04)
+        return detect_harris_corners(frame, sensitivity)
     elif concept == "object_counting":
         threshold_value = params.get("threshold_value", 127)
         return label_and_count_objects(frame, threshold_value)
